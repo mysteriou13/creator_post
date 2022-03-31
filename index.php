@@ -8,8 +8,17 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 
+<div>
+<div>
 
-<textarea id="txt" rows="15" cols="70"  > There is some text here.</textarea> <input type="button" id="btn" value="OK"  onclick='test()'/>
+<button type = "button" id = "sousligne"  onclick='add_balise(this.id)'> sousligne </button>
+</div>
+
+<div>
+<textarea id="txt" rows="15" cols="70"  onkeyup = "rendu()"> </textarea> 
+</div>
+
+</div>
 
 
 <div id = "t">
@@ -18,25 +27,38 @@
 
 <script>
 
-function test(){
 
-  
+    function rendu(){
+        
+        var str = $("#txt").val();
+
+var mapObj = {
+   sousligne:"<u>",
+   finsousligne:"</u>",
+   goat:"cat",
+   go:"fin"
+
+};
+str = str.replace(/sousligne|finsousligne|goat/g, function(matched){
+  return mapObj[matched];
+});
+        $("#t").html(str);
+
+    }
+
+function add_balise(balise){
+
+    var finbalise = "fin"+balise;
+
+    var $txt = $("#txt"); 
     
-    
-    var $txt = $("#txt"); var caretPos = $txt[0].selectionStart;
+    var caretPos = $txt[0].selectionStart;
     
     var textAreaTxt = $txt.val(); 
-    
 
-    var txtToAdd = "<u>stuff</u>"; $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) ); 
+    var txtToAdd = balise+"  "+finbalise; 
 
-    $('txt').innerHTML = txtToAdd;
-
-var t = txtToAdd; 
-
-document.getElementById("t").innerHTML= document.getElementById("txt").value;
-
-
+    $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) ); 
 
 }
 
