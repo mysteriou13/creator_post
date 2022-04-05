@@ -11,11 +11,13 @@
 <div>
 <div>
 
-<button type = "button" id = "sousligne"  onclick='add_balise(this.id)'> sousligne </button>
+<div>
+<button type = "button" id = "add_block"  onclick='add_balise(this.id)'> ajout text </button>
 </div>
 
+
+
 <div>
-<textarea id="txt" rows="15" cols="70"  onkeyup = "rendu()"> </textarea> 
 </div>
 
 </div>
@@ -25,32 +27,25 @@
     
 </div>
 
+
 <script>
 
 
-    function rendu(){
-        
-        var str = $("#txt").val();
+var id = 0;
 
-var mapObj = {
-   sousligne:"<u>",
-   finsousligne:"</u>",
-   goat:"cat",
-   go:"fin"
-
-};
-str = str.replace(/sousligne|finsousligne|goat/g, function(matched){
-  return mapObj[matched];
-});
-        $("#t").html(str);
-
-    }
+var souligne = 0;
 
 function add_balise(balise){
 
+    id += 1;
+
+    var idbutton = "idbutton"+id;
+
+    var idinput = "newID"+id;
+
     var finbalise = "fin"+balise;
 
-    var $txt = $("#txt"); 
+    var $txt = $("#t"); 
     
     var caretPos = $txt[0].selectionStart;
     
@@ -58,11 +53,85 @@ function add_balise(balise){
 
     var txtToAdd = balise+"  "+finbalise; 
 
-    $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) ); 
+    var x = document.createElement("INPUT");
+ 
+    var button = document.createElement("button");
+
+    var input = document.createElement("INPUT");
+input.setAttribute("type", "text");
+
+    var div = document.createElement("div");
+
+    var div1 = document.createElement("div");
+
+    var div2 = document.createElement("div");
+
+    idinputtext = "text"+idinput;
+    
+     input.setAttribute("type", "text");
+
+     var f = 'd1';
+
+     var t = document.createElement("button");
+
+      input.setAttribute("id", idinputtext);
+
+     t.setAttribute("id",idinput);
+
+     t.innerText = "souligne";
+
+ 
+   div.append(div1);
+
+   div1.append(t);
+
+   $txt.append(div);
+
+   $txt.append(div2);
+
+   div2.append(input);
+   
+    var qinput = "#"+idinput;
+
+     $("#"+idinput).bind("click", function() {
+
+add_class_css(this.id,"text-decoration-underline");
+
+});
+    
 
 }
 
-    </script>
+
+function add_class_css(a,clas){
+
+
+  var i = "#text"+a;
+
+souligne += 1;
+
+if(souligne == 2){
+
+  souligne = 0;
+
+}
+
+if(souligne == 1){
+
+  $(i).addClass(clas);
+
+}else{
+
+  $(i).removeClass(clas);
+  
+}
+
+}
+
+
+
+
+</script>
 
 
 
