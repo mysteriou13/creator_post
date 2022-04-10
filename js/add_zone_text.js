@@ -1,6 +1,7 @@
 function add_zone_text(balise){
 
     id += 1;
+    ligne +=1;
 
     var idbutton = "idbutton"+id;
 
@@ -18,7 +19,6 @@ function add_zone_text(balise){
 
     var txtToAdd = balise+"  "+finbalise; 
 
-    var x = document.createElement("INPUT");
 
     var input = document.createElement("INPUT");
 input.setAttribute("type", "text");
@@ -46,6 +46,8 @@ input.setAttribute("type", "text");
      t.innerText = "souligne";
     
      gras.innerText = "gras";
+
+     div2.setAttribute("id","ligne"+ligne);
 
  
    div.append(div1);

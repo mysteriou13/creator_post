@@ -23,7 +23,7 @@
 <div>
 
 <div>
-<button type = "button" id = "add_block"  onclick='add_zone_text(this.id)'> ajout text </button>
+<button type = "button" id = "add_block"  onclick='add_zone_text(this.id)'> ajout ligne </button>
 </div>
 
 
@@ -45,6 +45,8 @@
 <script>
 
 var id = 0;
+
+var ligne = 0;
 
 </script>
 
