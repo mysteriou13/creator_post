@@ -1,10 +1,12 @@
-function add_balise(balise){
+function add_zone_text(balise){
 
     id += 1;
 
     var idbutton = "idbutton"+id;
 
-    var idinput = "newID"+id;
+    var idinputsouligne = "newIDsouligne"+id;
+
+    var idinputgras = "newIDgras"+id;
 
     var finbalise = "fin"+balise;
 
@@ -17,8 +19,6 @@ function add_balise(balise){
     var txtToAdd = balise+"  "+finbalise; 
 
     var x = document.createElement("INPUT");
- 
-    var button = document.createElement("button");
 
     var input = document.createElement("INPUT");
 input.setAttribute("type", "text");
@@ -29,24 +29,30 @@ input.setAttribute("type", "text");
 
     var div2 = document.createElement("div");
 
-    idinputtext = "text"+idinput;
+    idinputtext = "text"+idinputsouligne;
     
      input.setAttribute("type", "text");
 
-     var f = 'd1';
-
      var t = document.createElement("button");
+
+     gras = document.createElement("button");
 
       input.setAttribute("id", idinputtext);
 
-     t.setAttribute("id",idinput);
+     t.setAttribute("id",idinputsouligne);
+
+     gras.setAttribute("id",idinputgras);
 
      t.innerText = "souligne";
+    
+     gras.innerText = "gras";
 
  
    div.append(div1);
 
    div1.append(t);
+
+   div1.append(gras);
 
    $txt.append(div);
 
@@ -54,13 +60,21 @@ input.setAttribute("type", "text");
 
    div2.append(input);
    
-    var qinput = "#"+idinput;
+    var qinput = "#"+idinputsouligne;
 
-     $("#"+idinput).bind("click", function() {
+     $("#"+idinputsouligne).bind("click", function() {
 
-add_class_css(this.id,"text-decoration-underline");
+add_class_css(idinputsouligne,"textDecoration", "underline", "none",document.getElementById("text"+idinputsouligne).style.textDecoration);
 
 });
+
+
+$("#"+idinputgras).bind("click", function() {
+
+    add_class_css(idinputsouligne,"font-weight", "Bold", "normal",document.getElementById("text"+idinputsouligne).style.fontWeight);
     
+    });
+    
+
 
 }

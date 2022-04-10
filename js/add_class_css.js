@@ -1,25 +1,15 @@
-function add_class_css(a,clas){
+function add_class_css(a,t1,t2,t3,t4){
 
+    var i = "text"+a;
 
-    var i = "#text"+a;
-  
-  souligne += 1;
-  
-  if(souligne == 2){
-  
-    souligne = 0;
-  
-  }
-  
-  if(souligne == 1){
-  
-    $(i).addClass(clas);
+  if(t4 == "" || t4 == t3){
+    $("#"+i).css(t1, t2);   
   
   }else{
-  
-    $(i).removeClass(clas);
-    
+
+
+    $("#"+i).css(t1, t3); 
+      
   }
-  
-  }
-  
+
+}

@@ -13,12 +13,17 @@
  
   </head>
 
+  <style>
+
+
+
+</style>
   
 <div>
 <div>
 
 <div>
-<button type = "button" id = "add_block"  onclick='add_balise(this.id)'> ajout text </button>
+<button type = "button" id = "add_block"  onclick='add_zone_text(this.id)'> ajout text </button>
 </div>
 
 
@@ -39,16 +44,13 @@
 
 <script>
 
-
 var id = 0;
-
-var souligne = 0;
 
 </script>
 
 <script type="text/javascript"  src = "./js/add_class_css.js" > </script>
 
-<script type="text/javascript"  src = "./js/add_balise.js" > </script>
+<script type="text/javascript"  src = "./js/add_zone_text.js" > </script>
 
 
 
