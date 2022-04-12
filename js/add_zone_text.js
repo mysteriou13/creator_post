@@ -20,48 +20,20 @@ function add_zone_text(balise){
     var txtToAdd = balise+"  "+finbalise; 
 
 
-    var input = document.createElement("INPUT");
-input.setAttribute("type", "text");
-
-    var div = document.createElement("div");
-
-    var div1 = document.createElement("div");
-
-    var div2 = document.createElement("div");
-
-    idinputtext = "text"+idinputsouligne;
-    
-     input.setAttribute("type", "text");
-
-     var t = document.createElement("button");
-
-     gras = document.createElement("button");
-
-      input.setAttribute("id", idinputtext);
-
-     t.setAttribute("id",idinputsouligne);
-
-     gras.setAttribute("id",idinputgras);
-
-     t.innerText = "souligne";
-    
-     gras.innerText = "gras";
-
-     div2.setAttribute("id","ligne"+ligne);
-
- 
-   div.append(div1);
-
-   div1.append(t);
-
-   div1.append(gras);
-
-   $txt.append(div);
-
-   $txt.append(div2);
-
-   div2.append(input);
    
+
+    var divbox = document.createElement("div");
+    
+    divbox.setAttribute("id", "divbox1");
+
+
+   var box = create_box(idinputsouligne,idinputgras);
+  
+   
+   divbox.append(create_box(idinputsouligne,idinputgras));
+
+   $txt.append(divbox);
+
     var qinput = "#"+idinputsouligne;
 
      $("#"+idinputsouligne).bind("click", function() {
@@ -78,5 +50,60 @@ $("#"+idinputgras).bind("click", function() {
     });
     
 
+
+}
+
+function create_box(idinputsouligne,idinputgras){
+
+
+    var div = document.createElement("div");
+    var box = document.createElement("div");
+
+    var input = document.createElement("INPUT");
+    input.setAttribute("type", "text");
+    
+    input.setAttribute("id", idinputtext);
+
+    box.setAttribute("id", "box1");
+
+    div.setAttribute("id", "div1");
+
+
+    var div1 = document.createElement("div");
+
+    var div2 = document.createElement("div");
+
+   var idinputtext = "text"+idinputsouligne;
+    
+     input.setAttribute("type", "text");
+
+     var t = document.createElement("button");
+
+     gras = document.createElement("button");
+
+     
+
+     t.setAttribute("id",idinputsouligne);
+
+     gras.setAttribute("id",idinputgras);
+
+     t.innerText = "souligne";
+    
+     gras.innerText = "gras";
+
+     div2.setAttribute("id","ligne"+ligne);
+
+    div.append(div1);
+
+    div1.append(t);
+ 
+    div1.append(gras);
+ 
+    div.append(input);
+
+    box.append(div);
+    box.append(div2);
+
+    return box;
 
 }
